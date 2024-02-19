@@ -10,9 +10,13 @@ import { SubscribeService } from '../Services/subscribe.service';
   imports: [CommonModule, AdminComponent, HomeComponent],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
+  providers: [SubscribeService], // 2.What to provide
 })
 export class HeaderComponent {
   selectedTab: string = 'home';
+
+  // 1.How to provide dependency
+  constructor(private subService: SubscribeService) {}
 
   //When HOME Link is clicked
   HomeClicked() {
@@ -25,7 +29,6 @@ export class HeaderComponent {
   }
 
   OnSubscribe() {
-    let subService = new SubscribeService();
-    subService.OnSubscribeClicked('monthly');
+    this.subService.OnSubscribeClicked('monthly');
   }
 }

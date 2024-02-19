@@ -7,10 +7,12 @@ import { SubscribeService } from '../../../Services/subscribe.service';
   imports: [],
   templateUrl: './sidebar.component.html',
   styleUrl: './sidebar.component.scss',
+  providers: [SubscribeService], // 2.What to provide
 })
 export class SidebarComponent {
+  // 1.How to provide dependency
+  constructor(private subService: SubscribeService) {}
   OnSubscribe() {
-    let subService = new SubscribeService();
-    subService.OnSubscribeClicked('quaterly');
+    this.subService.OnSubscribeClicked('quaterly');
   }
 }

@@ -7,10 +7,12 @@ import { SubscribeService } from '../../../Services/subscribe.service';
   imports: [],
   templateUrl: './hero.component.html',
   styleUrl: './hero.component.scss',
+  providers: [SubscribeService], // 2.What to provide
 })
 export class HeroComponent {
+  // 1.How to provide dependency
+  constructor(private subService: SubscribeService) {}
   OnSubscribe() {
-    let subService = new SubscribeService();
-    subService.OnSubscribeClicked('early');
+    this.subService.OnSubscribeClicked('early');
   }
 }
