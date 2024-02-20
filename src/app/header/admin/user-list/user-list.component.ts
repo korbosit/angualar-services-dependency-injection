@@ -1,6 +1,7 @@
 import { UserService } from './../../../Services/user.service';
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { USER_TOKEN } from '../../../app.config';
 
 @Component({
   selector: 'app-user-list',
@@ -10,7 +11,8 @@ import { CommonModule } from '@angular/common';
   styleUrl: './user-list.component.scss',
 })
 export class UserListComponent {
-  constructor(private userService: UserService) {}
+  // constructor(private userService: UserService) {}
+  constructor(@Inject(USER_TOKEN) private userService: UserService) {}
 
   userList = this.userService.GetAllUsers();
 }

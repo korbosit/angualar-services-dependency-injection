@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { UserDetailComponent } from './user-detail/user-detail.component';
 import { UserListComponent } from './user-list/user-list.component';
 import { UserService } from '../../Services/user.service';
+import { USER_TOKEN } from '../../app.config';
 
 @Component({
   selector: 'app-admin',
@@ -13,7 +14,8 @@ import { UserService } from '../../Services/user.service';
   styleUrl: './admin.component.scss',
 })
 export class AdminComponent {
-  constructor(private userService: UserService) {}
+  // constructor( private userService: UserService) {}
+  constructor(@Inject(USER_TOKEN) private userService: UserService) {}
 
   name: string = '';
   gender: string = 'Male';
