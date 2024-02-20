@@ -7,7 +7,6 @@ import { SubscribeService } from '../../../Services/subscribe.service';
   imports: [],
   templateUrl: './sidebar.component.html',
   styleUrl: './sidebar.component.scss',
-  providers: [SubscribeService], // 2.What to provide
 })
 export class SidebarComponent {
   // 1.How to provide dependency

@@ -10,7 +10,6 @@ import { SubscribeService } from '../Services/subscribe.service';
   imports: [CommonModule, AdminComponent, HomeComponent],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
-  providers: [SubscribeService], // 2.What to provide
 })
 export class HeaderComponent {
   selectedTab: string = 'home';
